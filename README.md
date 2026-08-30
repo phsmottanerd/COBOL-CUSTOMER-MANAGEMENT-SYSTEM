@@ -8,10 +8,8 @@
 <img src="https://readme-typing-svg.demolab.com?font=Courier+New&weight=700&size=22&duration=2500&pause=1000&color=00FF41&background=00000000&center=true&vCenter=true&width=700&lines=COBOL+CUSTOMER+MANAGEMENT+SYSTEM;PROGRAM+LOADED...;FILE+SYSTEM+READY...;CRUD+SYSTEM+ONLINE..." />
 
 </div>
+                                  <img src="https://capsule-render.vercel.app/api?type=rect&color=000000&height=140&section=header&text=PROGRAMADOR%20PAULO%20HENRIQUE&fontColor=00FF41&fontSize=38&fontAlignY=42&desc=COBOL%20%7C%20MAINFRAME%20%7C%20JCL%20%7C%20VSAM%20%7C%20DB2%20%7C%20z%2FOS&descColor=00FF41&descSize=17&descAlignY=68" width="100%"/>
 
-
-                                    <img src="https://readme-typing-svg.demolab.com?font=Courier+New&weight=700&size=22&duration=2500&pause=1000&color=00FF41&background=00000000&center=true&vCenter=true&width=700&lines=PROGRAMADOR+PAULO+HENRIQUE;COBOL+%7C+MAINFRAME+DEVELOPER;MAINFRAME+SYSTEMS+ONLINE...;COBOL+PROGRAM+LOADED...;SYSTEM+READY..." />
-    
 # 🦖 CRUD DE CLIENTES — COBOL
 
 **Autor:** Paulo Henrique
