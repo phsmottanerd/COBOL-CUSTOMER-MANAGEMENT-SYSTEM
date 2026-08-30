@@ -1,225 +1,10 @@
-from pathlib import Path
-import zipfile
-from xml.sax.saxutils import escape
-
-root = Path("/mnt/data/CRUD-CLIENTES-COBOL")
-assets = root / "assets"
-assets.mkdir(parents=True, exist_ok=True)
-
-GREEN = "#00FF41"
-BG = "#000000"
-FONT = "DejaVu Sans Mono, Courier New, monospace"
-
-def make_svg(filename, title, lines, width=1400, line_height=34, extra_height=0):
-    pad_x, top = 42, 62
-    height = top + (len(lines) * line_height) + 55 + extra_height
-    out = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
-        f'<rect width="100%" height="100%" fill="{BG}"/>',
-        f'<rect x="14" y="14" width="{width-28}" height="{height-28}" rx="8" fill="none" stroke="{GREEN}" stroke-width="3"/>',
-        f'<text x="{pad_x}" y="55" fill="{GREEN}" font-family="{FONT}" font-size="28" font-weight="800">{escape(title)}</text>',
-    ]
-    y = top + 40
-    for line in lines:
-        out.append(
-            f'<text x="{pad_x}" y="{y}" fill="{GREEN}" font-family="{FONT}" '
-            f'font-size="21" font-weight="800">{escape(line)}</text>'
-        )
-        y += line_height
-    out.append("</svg>")
-    (assets / filename).write_text("\n".join(out), encoding="utf-8")
-
-make_svg("01-header.svg", ">>> COBOL TERMINAL // CRUD DE CLIENTES <<<", [
-    "PAULO HENRIQUE",
-    "GNUCOBOL  |  LEGACY COMPUTING  |  FILE PROCESSING",
-    "",
-    ">>> PROGRAM LOADED",
-    ">>> FILE SYSTEM READY",
-    ">>> CRUD SYSTEM ONLINE",
-    "",
-    "████  COBOL — LEGACY TO THE FUTURE  ████",
-], line_height=38, extra_height=15)
-
-make_svg("02-descricao.svg", ">>> DESCRIÇÃO DO PROJETO <<<", [
-    "Sistema de gerenciamento de clientes desenvolvido em COBOL.",
-    "Implementado com GNUCOBOL e processamento sequencial de arquivos.",
-    "",
-    "O programa permite incluir, consultar, listar e excluir clientes.",
-    "Os registros são armazenados no arquivo CLIENTES.DAT.",
-    "Durante a exclusão, TEMP.DAT é usado para reconstruir o arquivo.",
-    "",
-    "OBJETIVO: praticar COBOL, registros, arquivos, validação e fluxo.",
-], line_height=36)
-
-make_svg("03-crud.svg", ">>> OPERAÇÕES DO CRUD <<<", [
-    "[1] INCLUIR CLIENTE",
-    "    Recebe código, nome, CPF e telefone.",
-    "    Verifica se o código já existe antes de gravar.",
-    "",
-    "[2] CONSULTAR CLIENTE",
-    "    Pesquisa CLIENTES.DAT pelo código informado.",
-    "",
-    "[3] LISTAR CLIENTES",
-    "    Percorre todos os registros e exibe os clientes.",
-    "",
-    "[4] EXCLUIR CLIENTE",
-    "    Confirma a exclusão e reconstrói CLIENTES.DAT.",
-    "",
-    "[0] SAIR",
-], line_height=35, extra_height=20)
-
-make_svg("04-arquivos.svg", ">>> ARQUIVOS E REGISTROS <<<", [
-    "CLIENTES.DAT",
-    "    CODIGO      PIC 9(05)",
-    "    NOME        PIC X(30)",
-    "    CPF         PIC X(11)",
-    "    TELEFONE    PIC X(15)",
-    "",
-    "TEMP.DAT",
-    "    TEMP-CODIGO       PIC 9(05)",
-    "    TEMP-NOME         PIC X(30)",
-    "    TEMP-CPF          PIC X(11)",
-    "    TEMP-TELEFONE     PIC X(15)",
-], line_height=34)
-
-make_svg("05-fluxo.svg", ">>> FLUXO DE EXECUÇÃO <<<", [
-    "INICIO",
-    "  |",
-    "  +--> CRIAR-ARQUIVO",
-    "  |",
-    "  +--> MENU",
-    "         |",
-    "         +--> INCLUIR",
-    "         +--> CONSULTAR",
-    "         +--> LISTAR",
-    "         +--> EXCLUIR",
-    "         |       |",
-    "         |       +--> REMOVER-CLIENTE",
-    "         |               |",
-    "         |               +--> RECRIAR-ARQUIVO",
-    "         |",
-    "         +--> SAIR",
-    "                 |",
-    "                 +--> STOP RUN",
-], line_height=33)
-
-make_svg("06-cobol.svg", ">>> ESTRUTURA COBOL <<<", [
-    "IDENTIFICATION DIVISION",
-    "    PROGRAM-ID. CRUD-CLIENTES.",
-    "",
-    "ENVIRONMENT DIVISION",
-    "    FILE-CONTROL",
-    "        CLIENTES -> CLIENTES.DAT",
-    "        TEMP     -> TEMP.DAT",
-    "",
-    "DATA DIVISION",
-    "    FILE SECTION",
-    "    WORKING-STORAGE SECTION",
-    "",
-    "PROCEDURE DIVISION",
-    "    INICIO",
-    "    CRIAR-ARQUIVO",
-    "    MENU",
-    "    INCLUIR / CONSULTAR / LISTAR / EXCLUIR",
-    "    REMOVER-CLIENTE / RECRIAR-ARQUIVO",
-], line_height=33)
-
-make_svg("07-tecnologias.svg", ">>> STACK E CONCEITOS <<<", [
-    "LINGUAGEM       : COBOL",
-    "COMPILADOR      : GNUCOBOL",
-    "ARMAZENAMENTO   : ARQUIVOS SEQUENCIAIS",
-    "FORMATO         : LINE SEQUENTIAL",
-    "CONTROLE        : FILE STATUS",
-    "",
-    "CONCEITOS PRATICADOS:",
-    "  OPEN / CLOSE / READ / WRITE",
-    "  PERFORM / EVALUATE / IF",
-    "  ACCEPT / DISPLAY",
-    "  REGISTROS E FILE HANDLING",
-    "  VALIDAÇÃO DE CÓDIGO",
-    "  RECONSTRUÇÃO DE ARQUIVO PARA EXCLUSÃO",
-], line_height=34)
-
-make_svg("08-mainframe.svg", ">>> DA ESTAÇÃO LOCAL AO MAINFRAME <<<", [
-    "ESTE PROJETO É UMA BASE PRÁTICA PARA EVOLUIR EM COBOL.",
-    "",
-    "COBOL",
-    "  |",
-    "  +--> JCL",
-    "        |",
-    "        +--> JES",
-    "              |",
-    "              +--> z/OS",
-    "                    |",
-    "                    +--> IBM Z",
-    "",
-    "O CRUD LOCAL REFORÇA FUNDAMENTOS QUE APARECEM",
-    "EM AMBIENTES CORPORATIVOS E MAINFRAME.",
-    "",
-    "🦖  LEGACY TECHNOLOGY  |  MODERN ENGINEERING  💾",
-], line_height=34, extra_height=20)
-
-make_svg("09-terminal.svg", ">>> SYSTEM STATUS <<<", [
-    "USER       : PAULO HENRIQUE",
-    "PROGRAM    : CRUD-CLIENTES",
-    "LANGUAGE   : COBOL",
-    "COMPILER   : GNUCOBOL",
-    "DATABASE   : CLIENTES.DAT",
-    "TEMP FILE  : TEMP.DAT",
-    "STATUS     : ONLINE",
-    "",
-    "> READY FOR COMPILE",
-    "> READY FOR EXECUTION",
-    "> READY FOR NEXT RECORD",
-    "",
-    "        🦖  COBOL NEVER DIED.  💾",
-], line_height=35, extra_height=10)
-
-readme = """<div align="center">
-
-<img src="./assets/01-header.svg" width="100%" alt="COBOL Terminal CRUD de Clientes">
-
-</div>
-
 <div align="center">
 
-<img src="./assets/02-descricao.svg" width="100%" alt="Descrição do projeto">
+<img src="https://capsule-render.vercel.app/api?type=rect&color=000000&height=120&section=header&text=CRUD%20DE%20CLIENTES&fontColor=00FF41&fontSize=35&fontAlignY=50&desc=COBOL%20%7C%20GNUCOBOL%20%7C%20LEGACY%20COMPUTING&descColor=00FF41&descSize=16" width="100%"/>
 
-</div>
+<br>
 
-<div align="center">
-
-<img src="./assets/03-crud.svg" width="100%" alt="Operações CRUD">
-
-</div>
-
-<div align="center">
-
-<img src="./assets/04-arquivos.svg" width="100%" alt="Arquivos e registros">
-
-</div>
-
-<div align="center">
-
-<img src="./assets/05-fluxo.svg" width="100%" alt="Fluxo de execução">
-
-</div>
-
-<div align="center">
-
-<img src="./assets/06-cobol.svg" width="100%" alt="Estrutura COBOL">
-
-</div>
-
-<div align="center">
-
-<img src="./assets/07-tecnologias.svg" width="100%" alt="Stack e conceitos">
-
-</div>
-
-<div align="center">
-
-<img src="./assets/08-mainframe.svg" width="100%" alt="Evolução para Mainframe">
+<img src="https://readme-typing-svg.demolab.com?font=Courier+New&weight=700&size=22&duration=2500&pause=1000&color=00FF41&background=00000000&center=true&vCenter=true&width=700&lines=COBOL+CUSTOMER+MANAGEMENT+SYSTEM;PROGRAM+LOADED...;FILE+SYSTEM+READY...;CRUD+SYSTEM+ONLINE..." />
 
 </div>
 
@@ -227,49 +12,713 @@ readme = """<div align="center">
 
 <div align="center">
 
-<img src="./assets/09-terminal.svg" width="100%" alt="System status">
+```text
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                 COBOL CUSTOMER MANAGEMENT SYSTEM             ║
+║                                                              ║
+║                 >>> PROGRAM LOADED <<<                       ║
+║                 >>> FILE SYSTEM READY <<<                    ║
+║                 >>> CRUD SYSTEM ONLINE <<<                    ║
+║                                                              ║
+║                 🦖  COBOL  💾  MAINFRAME                     ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+```
 
 </div>
 
----
+# 🦖 CRUD DE CLIENTES — COBOL
 
-## >>> COMO FUNCIONA <<<
-
-Este projeto implementa um CRUD de clientes em COBOL usando arquivos sequenciais.
-
-### 01. INCLUIR
-
-O programa solicita o código do cliente e chama `VERIFICAR-CODIGO`.  
-Se o código ainda não existir, solicita nome, CPF e telefone e grava o registro em `CLIENTES.DAT`.
-
-### 02. CONSULTAR
-
-O usuário informa um código. O programa abre `CLIENTES.DAT`, percorre os registros com `READ` e apresenta os dados quando encontra o código informado.
-
-### 03. LISTAR
-
-O programa percorre `CLIENTES.DAT` do início ao fim e apresenta todos os registros encontrados.
-
-### 04. EXCLUIR
-
-O programa primeiro localiza o código e pede confirmação.  
-Quando a exclusão é confirmada, `REMOVER-CLIENTE` copia todos os registros diferentes do código escolhido para `TEMP.DAT`. Depois `RECRIAR-ARQUIVO` recria `CLIENTES.DAT` usando os registros preservados.
+**Autor:** Paulo Henrique
+**Projeto:** CRUD Client Management System
+**Tecnologia:** COBOL / GNUCOBOL
+**Aplicação:** Console / Terminal
+**Persistência:** Arquivos `.DAT`
 
 ---
 
-## >>> ESTRUTURA DO PROJETO <<<
+# 🟢 DESCRIÇÃO
+
+Este projeto consiste em um **sistema de gerenciamento de clientes desenvolvido em COBOL**, utilizando **GNUCOBOL** para compilação e execução.
+
+A aplicação demonstra, de forma prática, conceitos fundamentais da programação COBOL, incluindo:
+
+* processamento sequencial de arquivos;
+* criação e leitura de registros;
+* inclusão de clientes;
+* consulta por código;
+* listagem de registros;
+* exclusão de clientes;
+* utilização de arquivo temporário;
+* controle de `FILE STATUS`;
+* estruturas `PERFORM`, `IF`, `EVALUATE` e `READ`;
+* operações `OPEN`, `WRITE` e `CLOSE`.
+
+O projeto foi desenvolvido como laboratório prático de **COBOL e processamento de dados**, aproximando conceitos tradicionais de sistemas corporativos e ambientes Mainframe.
+
+---
+
+# 🖥️ MENU PRINCIPAL
+
+```text
+╔══════════════════════════════════════════════════════╗
+║                                                      ║
+║              CRUD DE CLIENTES - COBOL                ║
+║                                                      ║
+║              [1] INCLUIR CLIENTE                    ║
+║              [2] CONSULTAR CLIENTE                  ║
+║              [3] LISTAR CLIENTES                    ║
+║              [4] EXCLUIR CLIENTE                    ║
+║              [0] SAIR                                ║
+║                                                      ║
+║              OPCAO:                                  ║
+║                                                      ║
+╚══════════════════════════════════════════════════════╝
+```
+
+O programa apresenta um menu interativo em terminal.
+
+O usuário seleciona a operação através da variável:
+
+```cobol
+01  OPCAO PIC 9 VALUE 9.
+```
+
+A seleção é processada através de `EVALUATE`.
+
+---
+
+# 💾 ARQUIVOS UTILIZADOS
+
+O sistema utiliza dois arquivos principais:
+
+```text
+CRUD-CLIENTES
+│
+├── CLIENTES.DAT
+│
+└── TEMP.DAT
+```
+
+### CLIENTES.DAT
+
+É o arquivo principal da aplicação.
+
+Nele ficam armazenados os registros dos clientes.
+
+### TEMP.DAT
+
+É utilizado durante o processo de exclusão.
+
+Os registros que não serão excluídos são copiados para o arquivo temporário.
+
+Depois o arquivo principal é reconstruído.
+
+---
+
+# 🧬 ESTRUTURA DO CLIENTE
+
+Cada cliente possui quatro informações:
+
+```cobol
+01  CLIENTE.
+    05  CODIGO       PIC 9(05).
+    05  NOME         PIC X(30).
+    05  CPF          PIC X(11).
+    05  TELEFONE     PIC X(15).
+```
+
+### Estrutura
+
+```text
+╔════════════════════════════════════════════╗
+║ CODIGO    → 5 posições numéricas           ║
+║ NOME      → 30 posições alfanuméricas      ║
+║ CPF       → 11 posições alfanuméricas      ║
+║ TELEFONE  → 15 posições alfanuméricas      ║
+╚════════════════════════════════════════════╝
+```
+
+---
+
+# ➕ INCLUIR CLIENTE
+
+A operação de inclusão começa solicitando o código:
+
+```text
+Codigo:
+```
+
+O programa copia o código para:
+
+```cobol
+MOVE CODIGO TO CODIGO-BUSCA
+```
+
+Depois executa:
+
+```cobol
+PERFORM VERIFICAR-CODIGO
+```
+
+O objetivo é impedir que dois clientes possuam o mesmo código.
+
+Se o código já existir:
+
+```text
+ERRO: CODIGO JA CADASTRADO.
+```
+
+Caso não exista, o programa solicita:
+
+```text
+Nome:
+CPF:
+Telefone:
+```
+
+Depois abre o arquivo para extensão:
+
+```cobol
+OPEN EXTEND CLIENTES
+```
+
+E grava o registro:
+
+```cobol
+WRITE CLIENTE
+```
+
+Resultado:
+
+```text
+CLIENTE INCLUIDO COM SUCESSO.
+```
+
+---
+
+# 🔎 CONSULTAR CLIENTE
+
+A consulta recebe um código:
+
+```text
+Codigo:
+```
+
+O programa abre:
+
+```cobol
+OPEN INPUT CLIENTES
+```
+
+Depois realiza a leitura sequencial:
+
+```cobol
+READ CLIENTES
+```
+
+Cada registro é comparado com:
+
+```cobol
+CODIGO-BUSCA
+```
+
+Quando encontra o cliente:
+
+```text
+Codigo   : 00001
+Nome     : PAULO HENRIQUE
+CPF      : 12345678901
+Telefone : 21999999999
+```
+
+Caso não encontre:
+
+```text
+CLIENTE NAO ENCONTRADO.
+```
+
+---
+
+# 📋 LISTAR CLIENTES
+
+A operação `LISTAR` percorre o arquivo inteiro.
+
+Fluxo:
+
+```text
+OPEN INPUT CLIENTES
+        │
+        ▼
+     READ
+        │
+        ▼
+    DISPLAY
+        │
+        ▼
+     READ
+        │
+        ▼
+     DISPLAY
+        │
+        ▼
+      AT END
+        │
+        ▼
+      CLOSE
+```
+
+A saída é apresentada no terminal:
+
+```text
+CODIGO | NOME | CPF | TELEFONE
+------------------------------------------
+
+00001 | PAULO HENRIQUE | 12345678901 | 21999999999
+00002 | JOAO SILVA    | 98765432100 | 21988888888
+```
+
+---
+
+# 🗑️ EXCLUIR CLIENTE
+
+A exclusão utiliza uma estratégia importante de processamento de arquivos.
+
+O programa não simplesmente apaga fisicamente uma linha do arquivo.
+
+Em vez disso:
+
+```text
+CLIENTES.DAT
+     │
+     ▼
+    READ
+     │
+     ▼
+COMPARAR CÓDIGO
+     │
+     ├───────────────┐
+     │               │
+   IGUAL          DIFERENTE
+     │               │
+     ▼               ▼
+  DESCARTA        COPIA PARA
+  REGISTRO        TEMP.DAT
+                       │
+                       ▼
+                   TEMP.DAT
+                       │
+                       ▼
+              RECRIAR ARQUIVO
+                       │
+                       ▼
+                 CLIENTES.DAT
+```
+
+Essa abordagem permite reconstruir o arquivo sem o registro selecionado.
+
+---
+
+# 🔄 RECRIAR ARQUIVO
+
+Após a exclusão, o procedimento:
+
+```cobol
+RECRIAR-ARQUIVO.
+```
+
+abre o arquivo temporário:
+
+```cobol
+OPEN INPUT TEMP
+```
+
+e cria novamente o arquivo principal:
+
+```cobol
+OPEN OUTPUT CLIENTES
+```
+
+Depois os registros são copiados novamente:
+
+```cobol
+READ TEMP
+```
+
+seguido de:
+
+```cobol
+WRITE CLIENTE
+```
+
+Resultado:
+
+```text
+TEMP.DAT
+   │
+   ▼
+READ
+   │
+   ▼
+WRITE
+   │
+   ▼
+CLIENTES.DAT
+```
+
+---
+
+# ⚙️ FILE STATUS
+
+O programa utiliza `FILE STATUS` para verificar o resultado das operações de arquivo.
+
+```cobol
+FILE STATUS IS WS-FILE-STATUS.
+```
+
+E:
+
+```cobol
+FILE STATUS IS WS-TEMP-STATUS.
+```
+
+Os campos são definidos como:
+
+```cobol
+01  WS-FILE-STATUS   PIC XX VALUE SPACES.
+01  WS-TEMP-STATUS   PIC XX VALUE SPACES.
+```
+
+O código:
+
+```text
+00
+```
+
+indica operação realizada com sucesso.
+
+O código:
+
+```text
+35
+```
+
+é utilizado pelo programa para identificar que o arquivo não foi encontrado durante a abertura para entrada.
+
+Nesse caso, o programa cria `CLIENTES.DAT`.
+
+---
+
+# 🗂️ ORGANIZAÇÃO DO ARQUIVO
+
+O projeto utiliza:
+
+```cobol
+ORGANIZATION IS LINE SEQUENTIAL
+```
+
+Isso significa que os registros são armazenados de forma sequencial em arquivo texto.
+
+A definição utilizada é:
+
+```cobol
+SELECT CLIENTES
+    ASSIGN TO "CLIENTES.DAT"
+    ORGANIZATION IS LINE SEQUENTIAL
+    FILE STATUS IS WS-FILE-STATUS.
+```
+
+---
+
+# 🧠 PRINCIPAIS COMANDOS COBOL
+
+O projeto utiliza comandos fundamentais da linguagem.
+
+### Arquivos
+
+```text
+OPEN
+READ
+WRITE
+CLOSE
+```
+
+### Entrada e saída
+
+```text
+ACCEPT
+DISPLAY
+```
+
+### Controle
+
+```text
+IF
+ELSE
+EVALUATE
+PERFORM
+```
+
+### Processamento
+
+```text
+MOVE
+```
+
+### Tratamento de leitura
+
+```text
+AT END
+NOT AT END
+```
+
+---
+
+# 🏗️ ESTRUTURA DO PROGRAMA
+
+O programa está organizado nas principais divisões COBOL:
+
+```text
+IDENTIFICATION DIVISION
+        │
+        ▼
+ENVIRONMENT DIVISION
+        │
+        ▼
+DATA DIVISION
+        │
+        ├── FILE SECTION
+        │
+        └── WORKING-STORAGE SECTION
+        │
+        ▼
+PROCEDURE DIVISION
+```
+
+---
+
+# 🖥️ FLUXO GERAL
+
+```text
+                INÍCIO
+                  │
+                  ▼
+          CRIAR-ARQUIVO
+                  │
+                  ▼
+                MENU
+                  │
+        ┌─────────┼─────────┐
+        │         │         │
+        ▼         ▼         ▼
+    INCLUIR   CONSULTAR   LISTAR
+        │         │         │
+        └─────────┼─────────┘
+                  │
+                  ▼
+               EXCLUIR
+                  │
+                  ▼
+             MENU NOVAMENTE
+                  │
+                  ▼
+                 SAIR
+```
+
+---
+
+# 🦖 COBOL E MAINFRAME
+
+Embora este projeto seja executado localmente utilizando **GNUCOBOL**, seus conceitos são diretamente relacionados ao aprendizado de ambientes COBOL corporativos.
+
+O próximo nível de evolução envolve tecnologias como:
+
+```text
+🦖 COBOL
+   │
+   ▼
+💾 JCL
+   │
+   ▼
+🖥️ z/OS
+   │
+   ├── JES
+   ├── VSAM
+   ├── DB2
+   └── CICS
+   │
+   ▼
+🖥️ IBM Z
+```
+
+O objetivo é utilizar este projeto como uma base para avançar de um CRUD baseado em arquivos para aplicações COBOL em ambiente Mainframe.
+
+---
+
+# 🏛️ LEGACY COMPUTING
+
+COBOL possui uma longa história no processamento de dados empresariais.
+
+Este projeto demonstra conceitos que continuam importantes:
+
+```text
+DADOS
+  │
+  ▼
+REGISTROS
+  │
+  ▼
+ARQUIVOS
+  │
+  ▼
+PROCESSAMENTO
+  │
+  ▼
+REGRAS DE NEGÓCIO
+  │
+  ▼
+SISTEMAS CORPORATIVOS
+```
+
+O objetivo não é apenas criar um CRUD.
+
+É compreender **como sistemas tradicionais processam dados e regras de negócio**.
+
+---
+
+# 🛠️ TECNOLOGIAS
+
+```text
+╔══════════════════════════════════════════════════╗
+║                                                  ║
+║  LANGUAGE      : COBOL                           ║
+║  COMPILER      : GNUCOBOL                        ║
+║  IDE           : OpenCobolIDE                    ║
+║  STORAGE       : FILE SYSTEM                     ║
+║  FILE FORMAT   : LINE SEQUENTIAL                 ║
+║  APPLICATION   : CONSOLE                         ║
+║                                                  ║
+╚══════════════════════════════════════════════════╝
+```
+
+---
+
+# 📁 ESTRUTURA DO PROJETO
 
 ```text
 CRUD-CLIENTES/
-├── CRUD-CLIENTES.COB
-├── README.md
-└── assets/
-    ├── 01-header.svg
-    ├── 02-descricao.svg
-    ├── 03-crud.svg
-    ├── 04-arquivos.svg
-    ├── 05-fluxo.svg
-    ├── 06-cobol.svg
-    ├── 07-tecnologias.svg
-    ├── 08-mainframe.svg
-    └── 09-terminal.svg
+│
+├── main.cob
+│
+├── CLIENTES.DAT
+│
+├── TEMP.DAT
+│
+└── README.md
+```
+
+---
+
+# 🚀 COMPILAÇÃO
+
+Com o GNUCOBOL instalado:
+
+```bash
+cobc -x -free -o crud-clientes main.cob
+```
+
+No Windows:
+
+```bash
+crud-clientes.exe
+```
+
+No Linux:
+
+```bash
+./crud-clientes
+```
+
+---
+
+# 🧪 OPERAÇÕES IMPLEMENTADAS
+
+```text
+╔══════════════════════════════════════════════════╗
+║                                                  ║
+║  [✓] INCLUIR CLIENTE                             ║
+║  [✓] CONSULTAR CLIENTE                           ║
+║  [✓] LISTAR CLIENTES                             ║
+║  [✓] EXCLUIR CLIENTE                             ║
+║                                                  ║
+║  [✓] VALIDAÇÃO DE CÓDIGO                         ║
+║  [✓] FILE STATUS                                 ║
+║  [✓] ARQUIVO TEMPORÁRIO                          ║
+║  [✓] RECONSTRUÇÃO DO ARQUIVO                    ║
+║                                                  ║
+╚══════════════════════════════════════════════════╝
+```
+
+---
+
+# 🔮 PRÓXIMOS PASSOS
+
+A evolução planejada para o projeto pode incluir:
+
+```text
+[✓] CRUD COM ARQUIVO SEQUENCIAL
+[✓] INCLUSÃO
+[✓] CONSULTA
+[✓] LISTAGEM
+[✓] EXCLUSÃO
+[✓] FILE STATUS
+
+[ ] ALTERAÇÃO DE CLIENTES
+[ ] VSAM KSDS
+[ ] JCL
+[ ] BATCH
+[ ] DB2
+[ ] CICS
+[ ] z/OS
+[ ] IBM Z
+```
+
+---
+
+# 👨‍💻 AUTOR
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=000000&height=100&section=footer&text=PAULO%20HENRIQUE&fontColor=00FF41&fontSize=30&desc=COBOL%20%7C%20MAINFRAME%20%7C%20GNUCOBOL&descColor=00FF41&descSize=14"/>
+
+```text
+╔══════════════════════════════════════════════════════╗
+║                                                      ║
+║                 PAULO HENRIQUE                       ║
+║                                                      ║
+║              COBOL / MAINFRAME                      ║
+║              GNUCOBOL                               ║
+║              LEGACY COMPUTING                       ║
+║                                                      ║
+║                 🦖 💾 🖥️                             ║
+║                                                      ║
+╚══════════════════════════════════════════════════════╝
+```
+
+</div>
+
+---
+
+<div align="center">
+
+```text
+>>> COBOL CUSTOMER MANAGEMENT SYSTEM <<<
+>>> PROGRAM STATUS: ONLINE <<<
+>>> FILE SYSTEM: READY <<<
+>>> LEGACY COMPUTING: ACTIVE <<<
+```
+
+### 🦖💚 COBOL — LEGACY TO THE FUTURE 💚🦖
+
+</div>
