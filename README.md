@@ -12,6 +12,45 @@
 
 <div align="center">
 
+<img src="https://readme-typing-svg.demolab.com?font=Courier+New&weight=700&size=20&duration=3000&pause=1200&color=00FF41&background=00000000&center=true&vCenter=true&width=700&lines=%3E%3E%3E+DESCRI%C3%87%C3%83O+DO+PROJETO+%3C%3C%3C" />
+
+</div>
+
+<font color="#00FF41">
+
+## 🦖 DESCRIÇÃO
+
+**CRUD DE CLIENTES** é um sistema de gerenciamento de clientes desenvolvido em **COBOL**, utilizando **GNUCOBOL**.
+
+O projeto foi desenvolvido para praticar conceitos fundamentais da linguagem COBOL, principalmente **processamento de arquivos, registros, leitura, gravação, validação e controle de fluxo**.
+
+O sistema trabalha com o arquivo `CLIENTES.DAT` para armazenar os registros dos clientes.
+
+</font>
+
+---
+
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=Courier+New&weight=700&size=20&duration=3000&pause=1200&color=00FF41&background=00000000&center=true&vCenter=true&width=700&lines=%3E%3E%3E+OPERA%C3%87%C3%95ES+CRUD+%3C%3C%3C" />
+
+</div>
+
+<font color="#00FF41">
+
+```text
+╔══════════════════════════════════════════════════════╗
+║              CRUD DE CLIENTES — COBOL                ║
+╠══════════════════════════════════════════════════════╣
+║                                                      ║
+║  [1] INCLUIR CLIENTE                                 ║
+║  [2] CONSULTAR CLIENTE                               ║
+║  [3] LISTAR CLIENTES                                 ║
+║  [4] EXCLUIR CLIENTE                                 ║
+║  [0] SAIR                                            ║
+║                                                      ║
+╚══════════════════════════════════════════════════════╝
+
 ```text
 ╔══════════════════════════════════════════════════════════════╗
 ║                                                              ║
