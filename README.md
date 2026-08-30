@@ -8,15 +8,13 @@
 
 </div>
 
----
-
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Courier+New&weight=700&size=20&duration=3000&pause=1200&color=00FF41&background=00000000&center=true&vCenter=true&width=700&lines=%3E%3E%3E+DESCRI%C3%87%C3%83O+DO+PROJETO+%3C%3C%3C" />
+<img src="https://readme-typing-svg.demolab.com?font=Courier+New&weight=900&size=20&duration=1&pause=100000&color=00FF41&background=00000000&center=true&vCenter=true&width=800&height=300&lines=%E2%95%94%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90+CRUD+DE+CLIENTES+%E2%80%94+COBOL+%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90;%E2%95%91+%5B1%5D+INCLUIR+CLIENTE;%E2%95%91+%5B2%5D+CONSULTAR+CLIENTE;%E2%95%91+%5B3%5D+LISTAR+CLIENTES;%E2%95%91+%5B4%5D+EXCLUIR+CLIENTE;%E2%95%91+%5B0%5D+SAIR;%E2%95%9A%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90+SYSTEM+ONLINE+%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%9D" />
 
 </div>
 
-<font color="#00FF41">
+
 
 ## 🦖 DESCRIÇÃO
 
