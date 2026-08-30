@@ -958,6 +958,7 @@ O sistema utiliza arquivos sequenciais para persistência dos dados.
 
 # ➕ Inclusão
 
+                                       <img src="https://capsule-render.vercel.app/api?type=rect&color=000000&height=140&section=header&text=PROGRAMADOR%20PAULO%20HENRIQUE&fontColor=00FF41&fontSize=38&fontAlignY=42&desc=COBOL%20%7C%20MAINFRAME%20%7C%20JCL%20%7C%20VSAM%20%7C%20DB2%20%7C%20z%2FOS&descColor=00FF41&descSize=17&descAlignY=68&animation=blinking" width="100%"/>
 A rotina `INCLUIR` recebe:
 
 ```text
