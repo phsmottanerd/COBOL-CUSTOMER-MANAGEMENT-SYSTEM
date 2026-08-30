@@ -1,8 +1,6 @@
-# 🦖💚 COBOL CUSTOMER MANAGEMENT SYSTEM 💚🦖
-
 <div align="center">
 
-```text
+<pre>
  ██████╗ ██████╗ ██████╗  ██████╗ ██╗     
 ██╔════╝██╔═══██╗██╔══██╗██╔═══██╗██║     
 ██║     ██║   ██║██████╔╝██║   ██║██║     
@@ -10,69 +8,207 @@
 ╚██████╗╚██████╔╝██████╔╝╚██████╔╝███████╗
  ╚═════╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚══════╝
 
-        🦖 MAINFRAME • COBOL • LEGACY COMPUTING 🦖
+        ██████╗ ██████╗  ██████╗ ██╗     
+       ██╔════╝██╔═══██╗██╔══██╗██║     
+       ██║     ██║   ██║██████╔╝██║     
+       ██║     ██║   ██║██╔══██╗██║     
+       ╚██████╗╚██████╔╝██████╔╝███████╗
+        ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝
 
-             >>> SYSTEM ONLINE <<<
-```
+             🦖 LEGACY COMPUTING 🦖
+              >>> SYSTEM ONLINE <<<
+</pre>
 
-**COBOL CUSTOMER MANAGEMENT SYSTEM**
+<font color="#00FF41">
 
-**Sistema de Gestão de Clientes desenvolvido em COBOL**
+# 🦖 CRUD DE CLIENTES — COBOL
 
-🟢 **GNUCOBOL**
-🟢 **CRUD**
-🟢 **FILE PROCESSING**
-🟢 **LINE SEQUENTIAL**
-🟢 **LEGACY COMPUTING**
+### 💾 COBOL CUSTOMER MANAGEMENT SYSTEM
+
+**Sistema de gerenciamento de clientes desenvolvido em COBOL com GNUCOBOL**
+
+</font>
 
 </div>
 
 ---
 
-## 🟢 💾 SOBRE O PROJETO
+<div style="color:#00FF41">
 
-Este projeto implementa um **sistema de gerenciamento de clientes utilizando COBOL**, demonstrando conceitos fundamentais da programação tradicional e do processamento de arquivos.
+## 🦖 SOBRE O PROJETO
 
-O sistema foi desenvolvido para reproduzir, em um ambiente moderno, conceitos que fazem parte da história da computação empresarial, especialmente o processamento de dados utilizado em sistemas **mainframe**.
+Este projeto apresenta um **CRUD completo de clientes desenvolvido em COBOL**, utilizando processamento de arquivos sequenciais.
 
-🦖💚 **Antes dos frameworks modernos, das APIs REST, dos containers e da computação em nuvem, sistemas COBOL já processavam grandes volumes de dados em ambientes corporativos.**
+A aplicação foi construída com o objetivo de praticar conceitos fundamentais da linguagem COBOL e compreender como sistemas tradicionais de processamento de dados são estruturados.
 
-Este projeto é uma demonstração prática dessa tecnologia.
+O projeto trabalha diretamente com arquivos, registros, leitura sequencial, gravação, alteração e exclusão de dados.
 
----
-
-## 🟢 🦖 POR QUE COBOL?
-
-COBOL — **Common Business-Oriented Language** — foi criado para aplicações voltadas principalmente ao processamento de informações empresariais.
-
-Mesmo sendo uma tecnologia antiga, COBOL continua associado a sistemas críticos de grandes organizações, especialmente em ambientes de:
-
-```text
-🦖 MAINFRAME
-🦖 BANCO DE DADOS
-🦖 SISTEMAS FINANCEIROS
-🦖 PROCESSAMENTO DE TRANSAÇÕES
-🦖 PROCESSAMENTO BATCH
-🦖 GRANDES VOLUMES DE DADOS
-```
-
-O objetivo deste projeto é estudar esses conceitos através de uma aplicação prática.
+A ideia é reproduzir, em um ambiente de estudo moderno, uma pequena aplicação empresarial utilizando conceitos que fazem parte da história da computação corporativa.
 
 ---
 
-# 🟢 ⚙️ FUNCIONALIDADES
+## 💚 O QUE É COBOL?
 
-O sistema implementa um CRUD completo:
+**COBOL — Common Business-Oriented Language** — é uma linguagem criada para aplicações voltadas ao processamento de informações empresariais.
 
-| Operação  | Função                |
-| --------- | --------------------- |
-| 🟢 CREATE | Inclusão de clientes  |
-| 🟢 READ   | Consulta de clientes  |
-| 🟢 READ   | Listagem de clientes  |
-| 🟢 UPDATE | Alteração de clientes |
-| 🟢 DELETE | Exclusão de clientes  |
+Durante décadas, COBOL foi utilizado em sistemas críticos responsáveis por processar grandes quantidades de informações.
 
-### 🟢 MENU DO SISTEMA
+Enquanto a tecnologia evoluiu de computadores antigos para servidores modernos, cloud e inteligência artificial, muitos sistemas corporativos continuaram utilizando COBOL.
+
+Por isso, estudar COBOL também significa compreender uma parte importante da evolução da computação.
+
+---
+
+## 🦖💻 DOS COMPUTADORES ANTIGOS AO MAINFRAME
+
+Imagine a evolução:
+
+🦖 **Computadores de grande porte**
+
+⬇️
+
+🦖 **Mainframes**
+
+⬇️
+
+🦖 **COBOL**
+
+⬇️
+
+💾 **Arquivos e processamento batch**
+
+⬇️
+
+💻 **Computadores pessoais**
+
+⬇️
+
+🌐 **Internet**
+
+⬇️
+
+☁️ **Cloud Computing**
+
+⬇️
+
+🐳 **Containers**
+
+⬇️
+
+🤖 **Inteligência Artificial**
+
+Mesmo com toda essa evolução, conceitos como **processamento de dados, registros, arquivos, regras de negócio e transações** continuam existindo.
+
+---
+
+## 💾 FUNCIONALIDADES
+
+O sistema possui as operações básicas de um CRUD:
+
+### 🟢 CREATE — INCLUIR
+
+Permite cadastrar um novo cliente.
+
+O usuário informa:
+
+* Código
+* Nome
+* CPF
+* Telefone
+
+Antes da gravação, o programa verifica se o código já existe.
+
+---
+
+### 🔎 READ — CONSULTAR
+
+Permite pesquisar um cliente através do código.
+
+O programa abre o arquivo `CLIENTES.DAT`, percorre os registros e procura o código informado.
+
+Quando encontra o registro, os dados são apresentados na tela.
+
+---
+
+### 📋 READ — LISTAR
+
+A opção listar percorre todos os registros existentes no arquivo.
+
+Cada cliente é lido sequencialmente até que o programa alcance o final do arquivo.
+
+---
+
+### ✏️ UPDATE — ALTERAR
+
+A alteração utiliza um arquivo temporário.
+
+O programa lê os registros existentes e cria uma nova versão dos dados, substituindo as informações do cliente selecionado.
+
+Fluxo:
+
+**CLIENTES.DAT**
+
+⬇️
+
+**LEITURA DOS REGISTROS**
+
+⬇️
+
+**TEMP.DAT**
+
+⬇️
+
+**ALTERAÇÃO**
+
+⬇️
+
+**NOVO CLIENTES.DAT**
+
+---
+
+### 🗑️ DELETE — EXCLUIR
+
+A exclusão utiliza o mesmo conceito de processamento através de arquivo temporário.
+
+O programa percorre os registros.
+
+O cliente selecionado não é copiado para o arquivo temporário.
+
+Os demais clientes são preservados.
+
+Depois disso, o arquivo principal é reconstruído.
+
+---
+
+## 🧠 COMO O SISTEMA FUNCIONA
+
+O fluxo principal da aplicação é:
+
+**INÍCIO**
+
+⬇️
+
+**CRIAR / VERIFICAR CLIENTES.DAT**
+
+⬇️
+
+**MENU PRINCIPAL**
+
+⬇️
+
+**OPERAÇÃO DO USUÁRIO**
+
+⬇️
+
+**PROCESSAMENTO**
+
+⬇️
+
+**CLIENTES.DAT**
+
+---
+
+## 🖥️ MENU DO SISTEMA
 
 ```text
 ==========================================
@@ -92,18 +228,30 @@ OPCAO:
 
 ---
 
-# 🟢 📋 DADOS DO CLIENTE
+## 💾 ARQUIVOS DO SISTEMA
 
-Cada cliente possui:
+O projeto utiliza dois arquivos principais.
 
-```text
-CODIGO
-NOME
-CPF
-TELEFONE
-```
+### 📁 CLIENTES.DAT
 
-Estrutura utilizada no programa:
+É o arquivo principal utilizado para armazenar os clientes.
+
+Cada registro possui:
+
+* Código
+* Nome
+* CPF
+* Telefone
+
+### 📁 TEMP.DAT
+
+É utilizado como arquivo temporário durante operações de alteração e exclusão.
+
+---
+
+## 🧬 ESTRUTURA DOS DADOS
+
+O registro principal possui a seguinte estrutura:
 
 ```cobol
 01 CLIENTE.
@@ -113,327 +261,64 @@ Estrutura utilizada no programa:
     05 TELEFONE     PIC X(15).
 ```
 
-Essa estrutura demonstra uma característica importante do COBOL:
-
-> Os dados são definidos explicitamente através de estruturas e campos.
+Essa estrutura demonstra uma característica importante do COBOL: os dados são definidos através de estruturas hierárquicas e campos com tamanho determinado.
 
 ---
 
-# 🟢 💾 COMO O CRUD FUNCIONA
-
-## 🟢 1. INCLUIR CLIENTE
-
-O usuário informa:
-
-```text
-Codigo
-Nome
-CPF
-Telefone
-```
-
-Antes da gravação, o sistema verifica se o código já existe.
-
-```text
-CODIGO → VERIFICAÇÃO → GRAVAÇÃO
-```
-
-Se o código já estiver cadastrado:
-
-```text
-ERRO: CODIGO JA CADASTRADO.
-```
-
-Caso contrário:
-
-```text
-CLIENTE INCLUIDO COM SUCESSO.
-```
-
----
-
-# 🟢 🔎 2. CONSULTAR CLIENTE
-
-O usuário informa o código.
-
-O programa abre `CLIENTES.DAT` e percorre os registros utilizando `READ`.
-
-```text
-CODIGO INFORMADO
-       ↓
-OPEN INPUT
-       ↓
-READ
-       ↓
-COMPARA CODIGO
-       ↓
-ENCONTROU?
-   ↙       ↘
- SIM       NÃO
-  ↓         ↓
-EXIBE     NÃO ENCONTRADO
-```
-
-Quando encontra o registro:
-
-```text
-Codigo   : 00001
-Nome     : PAULO HENRIQUE
-CPF      : 12345678901
-Telefone : 21999999999
-```
-
----
-
-# 🟢 📋 3. LISTAR CLIENTES
-
-A opção **LISTAR** percorre todos os registros do arquivo.
-
-O programa executa sucessivos:
-
-```cobol
-READ CLIENTES
-```
-
-até chegar ao:
-
-```text
-AT END
-```
-
-Representação:
-
-```text
-CLIENTES.DAT
-     │
-     ├── CLIENTE 001
-     ├── CLIENTE 002
-     ├── CLIENTE 003
-     ├── CLIENTE 004
-     └── AT END
-```
-
----
-
-# 🟢 ✏️ 4. ALTERAR CLIENTE
-
-Para alterar um cliente, o sistema:
-
-```text
-1. Localiza o código
-2. Lê os registros
-3. Cria um arquivo temporário
-4. Mantém os registros existentes
-5. Substitui os dados do cliente
-6. Reconstrói CLIENTES.DAT
-```
-
-Esse mecanismo demonstra uma técnica clássica de processamento de arquivos sequenciais.
-
-```text
-CLIENTES.DAT
-     ↓
-READ
-     ↓
-TEMP.DAT
-     ↓
-ALTERAÇÃO
-     ↓
-NOVO CLIENTES.DAT
-```
-
----
-
-# 🟢 🗑️ 5. EXCLUIR CLIENTE
-
-A exclusão também utiliza processamento através de arquivo temporário.
-
-O programa lê todos os clientes.
-
-Se o código for diferente daquele que será excluído:
-
-```text
-WRITE → TEMP.DAT
-```
-
-Se for o código selecionado:
-
-```text
-NÃO COPIA
-```
-
-Depois:
-
-```text
-TEMP.DAT
-    ↓
-RECRIA
-    ↓
-CLIENTES.DAT
-```
-
-Resultado:
-
-```text
-CLIENTE EXCLUIDO COM SUCESSO.
-```
-
----
-
-# 🟢 💾 ARQUIVOS UTILIZADOS
-
-O sistema utiliza dois arquivos:
-
-### `CLIENTES.DAT`
-
-Arquivo principal dos clientes.
-
-```text
-CLIENTES.DAT
-```
-
-### `TEMP.DAT`
-
-Arquivo temporário utilizado durante operações de alteração e exclusão.
-
-```text
-TEMP.DAT
-```
+## 🟢 PROCESSAMENTO SEQUENCIAL
 
 O projeto utiliza:
 
-```cobol
+```text
 ORGANIZATION IS LINE SEQUENTIAL
 ```
 
-Isso permite trabalhar com registros armazenados sequencialmente em arquivo texto.
+Isso significa que os registros são armazenados sequencialmente.
+
+O programa utiliza operações como:
+
+```text
+OPEN
+READ
+WRITE
+CLOSE
+```
+
+O fluxo de leitura pode ser representado como:
+
+**OPEN**
+
+⬇️
+
+**READ**
+
+⬇️
+
+**PROCESSAMENTO**
+
+⬇️
+
+**READ**
+
+⬇️
+
+**AT END**
+
+⬇️
+
+**CLOSE**
+
+Esse modelo de processamento é um dos conceitos fundamentais para compreender aplicações COBOL baseadas em arquivos.
 
 ---
 
-# 🟢 🧠 CONCEITOS COBOL UTILIZADOS
+## 🦖 COBOL E MAINFRAME
 
-Este projeto demonstra diversos conceitos importantes:
+Este projeto não é um emulador de Mainframe e não pretende substituir um ambiente IBM Z.
 
-```text
-🟢 IDENTIFICATION DIVISION
-🟢 ENVIRONMENT DIVISION
-🟢 DATA DIVISION
-🟢 FILE SECTION
-🟢 WORKING-STORAGE SECTION
-🟢 PROCEDURE DIVISION
-🟢 FILE-CONTROL
-🟢 FILE STATUS
-🟢 OPEN
-🟢 CLOSE
-🟢 READ
-🟢 WRITE
-🟢 EXTEND
-🟢 PERFORM
-🟢 EVALUATE
-🟢 IF / ELSE
-🟢 ACCEPT
-🟢 DISPLAY
-🟢 AT END
-🟢 PIC
-🟢 LINE SEQUENTIAL
-```
+O objetivo é utilizar **GNUCOBOL** para estudar a linguagem e conceitos que também aparecem no universo Mainframe.
 
----
-
-# 🟢 🧬 ESTRUTURA DO PROGRAMA
-
-O fluxo principal pode ser representado assim:
-
-```text
-                    🦖 COBOL SYSTEM
-                          │
-                          ▼
-                  ┌───────────────┐
-                  │    INICIO     │
-                  └───────┬───────┘
-                          │
-                          ▼
-                  ┌───────────────┐
-                  │ CRIAR ARQUIVO │
-                  └───────┬───────┘
-                          │
-                          ▼
-                  ┌───────────────┐
-                  │     MENU      │
-                  └───────┬───────┘
-                          │
-          ┌───────────────┼───────────────┐
-          ▼               ▼               ▼
-       INCLUIR         CONSULTAR        LISTAR
-          │               │               │
-          └───────────────┼───────────────┘
-                          │
-                 ┌────────┴────────┐
-                 ▼                 ▼
-              ALTERAR           EXCLUIR
-                 │                 │
-                 └────────┬────────┘
-                          ▼
-                    CLIENTES.DAT
-```
-
----
-
-# 🟢 🦖 COBOL E OS "DINOSSAUROS" DA COMPUTAÇÃO
-
-Este projeto também representa uma pequena viagem pela evolução da computação.
-
-```text
-🦖 MAINFRAME
-      │
-      ▼
-🦖 COBOL
-      │
-      ▼
-🦖 ARQUIVOS SEQUENCIAIS
-      │
-      ▼
-🦖 PROCESSAMENTO DE DADOS
-      │
-      ▼
-💻 COMPUTADORES PESSOAIS
-      │
-      ▼
-🌐 INTERNET
-      │
-      ▼
-☁️ CLOUD
-      │
-      ▼
-🤖 IA
-```
-
-O mais interessante é que uma parte importante dessa história **ainda está em produção**.
-
-COBOL não é apenas uma linguagem antiga.
-
-É parte da infraestrutura de sistemas empresariais que ajudaram a construir a computação moderna.
-
----
-
-# 🟢 💻 DOS COMPUTADORES ANTIGOS AO MAINFRAME
-
-Na época em que computadores pessoais ainda possuíam recursos extremamente limitados, sistemas corporativos já utilizavam processamento estruturado de grandes quantidades de informações.
-
-Hoje temos:
-
-```text
-CPU MULTICORE
-GB / TB DE RAM
-SSD
-CLOUD
-CONTAINERS
-KUBERNETES
-MICROSERVICES
-AI
-```
-
-Mas muitos ambientes corporativos continuam dependendo de:
+No ambiente corporativo, COBOL pode trabalhar junto com tecnologias como:
 
 ```text
 COBOL
@@ -443,228 +328,299 @@ CICS
 DB2
 VSAM
 JES
-MAINFRAME
+IBM Z
 ```
 
-É justamente essa coexistência entre **tecnologias clássicas e modernas** que torna o estudo de Mainframe tão interessante.
+O estudo deste pequeno CRUD é, portanto, uma porta de entrada para conceitos maiores relacionados ao desenvolvimento de sistemas corporativos e Mainframe.
 
 ---
 
-# 🟢 🖥️ TECNOLOGIA
+## 💻 TECNOLOGIAS
 
-### Linguagem
+| Tecnologia         | Utilização                  |
+| ------------------ | --------------------------- |
+| 🟢 COBOL           | Linguagem principal         |
+| 🟢 GNUCOBOL        | Compilação e execução       |
+| 🟢 OpenCobolIDE    | Ambiente de desenvolvimento |
+| 🟢 File Processing | Persistência dos dados      |
+| 🟢 LINE SEQUENTIAL | Organização dos arquivos    |
+
+---
+
+## 🧩 CONCEITOS COBOL PRATICADOS
+
+Este projeto utiliza:
+
+🟢 `IDENTIFICATION DIVISION`
+
+🟢 `ENVIRONMENT DIVISION`
+
+🟢 `DATA DIVISION`
+
+🟢 `FILE SECTION`
+
+🟢 `WORKING-STORAGE SECTION`
+
+🟢 `PROCEDURE DIVISION`
+
+🟢 `FILE-CONTROL`
+
+🟢 `FD`
+
+🟢 `PIC`
+
+🟢 `FILE STATUS`
+
+🟢 `OPEN`
+
+🟢 `READ`
+
+🟢 `WRITE`
+
+🟢 `CLOSE`
+
+🟢 `EXTEND`
+
+🟢 `PERFORM`
+
+🟢 `IF`
+
+🟢 `EVALUATE`
+
+🟢 `ACCEPT`
+
+🟢 `DISPLAY`
+
+🟢 `AT END`
+
+---
+
+## 🦖 POR QUE UM CRUD EM COBOL?
+
+Um CRUD parece simples.
+
+Mas, neste projeto, ele permite estudar vários conceitos importantes simultaneamente.
+
+Ao implementar:
+
+**INCLUIR**
+
+**CONSULTAR**
+
+**LISTAR**
+
+**ALTERAR**
+
+**EXCLUIR**
+
+é possível entender:
+
+* Estrutura de dados
+* Persistência
+* Processamento sequencial
+* Validação
+* Controle de fluxo
+* Leitura de arquivos
+* Gravação de registros
+* Manipulação de arquivos temporários
+* Organização de programas COBOL
+
+---
+
+## 🧱 ARQUITETURA DO PROJETO
 
 ```text
-COBOL
-```
-
-### Compilador
-
-```text
-GNUCOBOL
-```
-
-### Ambiente
-
-```text
-OpenCobolIDE
-```
-
-### Persistência
-
-```text
-CLIENTES.DAT
-TEMP.DAT
-```
-
-### Arquitetura
-
-```text
-Console Application
-        +
-File Processing
-        +
-CRUD
+                🦖 COBOL APPLICATION
+                         │
+                         ▼
+                 ┌───────────────┐
+                 │     MENU      │
+                 └───────┬───────┘
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+        ▼                ▼                ▼
+    INCLUIR          CONSULTAR         LISTAR
+        │                │                │
+        └────────────────┼────────────────┘
+                         │
+                ┌────────┴────────┐
+                │                 │
+                ▼                 ▼
+             ALTERAR           EXCLUIR
+                │                 │
+                └────────┬────────┘
+                         ▼
+                   CLIENTES.DAT
+                         │
+                         ▼
+                     TEMP.DAT
 ```
 
 ---
 
-# 🟢 🚀 COMO EXECUTAR
-
-Com o GnuCOBOL instalado:
-
-```bash
-cobc -x -free -o crud-clientes main.cob
-```
-
-Executar:
-
-### Windows
-
-```bash
-crud-clientes.exe
-```
-
-### Linux
-
-```bash
-./crud-clientes
-```
-
-O arquivo:
-
-```text
-CLIENTES.DAT
-```
-
-será utilizado como base de dados do sistema.
-
----
-
-# 🟢 📁 ESTRUTURA DO PROJETO
+## 📁 ESTRUTURA DO REPOSITÓRIO
 
 ```text
 CRUD-CLIENTES/
 │
 ├── main.cob
-│
 ├── CLIENTES.DAT
-│
 ├── TEMP.DAT
-│
 └── README.md
 ```
 
 ---
 
-# 🟢 🎯 OBJETIVO DO PROJETO
+## ⚙️ COMO EXECUTAR
 
-Este projeto foi desenvolvido com objetivos educacionais e profissionais para demonstrar:
+Com o GNUCOBOL instalado, o programa pode ser compilado com:
 
-* Programação COBOL
-* Processamento de arquivos
-* Estruturas de dados
-* CRUD
-* Controle de fluxo
-* Manipulação de registros
-* Tratamento básico de arquivos
-* Conceitos de sistemas legados
-* Fundamentos relacionados ao ambiente Mainframe
+```bash
+cobc -x -free -o crud-clientes main.cob
+```
 
----
+No Windows:
 
-# 🟢 🧑‍💻 AUTOR
+```bash
+crud-clientes.exe
+```
 
-## PAULO HENRIQUE
+No Linux:
 
-Desenvolvedor com foco em:
-
-```text
-🟢 COBOL
-🟢 IBM Z / MAINFRAME
-🟢 JAVA
-🟢 SPRING BOOT
-🟢 ANGULAR
-🟢 CYBERSECURITY
-🟢 INFRAESTRUTURA
+```bash
+./crud-clientes
 ```
 
 ---
 
-# 🟢 🦖 LEGACY DOES NOT MEAN DEAD
+## 🧪 EXEMPLO DE UTILIZAÇÃO
 
 ```text
-             🦖
-            /|\
-           / | \
-          /  |  \
-         /___|___\
-            |
-         COBOL
-            |
-    ┌───────┴────────┐
-    │                │
- MAINFRAME        BUSINESS
-    │                │
-    └───────┬────────┘
-            │
-        BILLIONS
-        OF RECORDS
+==========================================
+          CRUD DE CLIENTES - COBOL
+==========================================
+
+[1] INCLUIR
+[2] CONSULTAR
+[3] LISTAR
+[4] ALTERAR
+[5] EXCLUIR
+[0] SAIR
+
+OPCAO: 1
+
+----------- INCLUIR CLIENTE -----------
+
+Codigo: 00001
+Nome: PAULO HENRIQUE
+CPF: 12345678901
+Telefone: 21999999999
+
+CLIENTE INCLUIDO COM SUCESSO.
 ```
 
-> **Tecnologia antiga não significa tecnologia inútil.**
+Depois:
 
-> Algumas das aplicações mais importantes do mundo continuam dependendo de sistemas construídos sobre tecnologias que começaram décadas atrás.
+```text
+OPCAO: 3
+
+----------- LISTA DE CLIENTES -----------
+
+CODIGO | NOME | CPF | TELEFONE
+
+00001 | PAULO HENRIQUE | 12345678901 | 21999999999
+```
 
 ---
 
-# 🟢 📚 PRÓXIMOS PASSOS
+## 🦖💚 LEGACY COMPUTING
 
-Possíveis evoluções deste projeto:
+Existe uma diferença importante entre **tecnologia antiga** e **tecnologia sem valor**.
+
+COBOL pertence à história da computação empresarial e continua sendo relevante para compreender sistemas corporativos, processamento de dados e ambientes Mainframe.
+
+Este projeto representa justamente essa ponte:
 
 ```text
-[✓] CRUD básico
-[✓] Arquivo sequencial
-[✓] Inclusão
-[✓] Consulta
-[✓] Listagem
-[✓] Alteração
-[✓] Exclusão
+🦖 TECNOLOGIA CLÁSSICA
+          +
+💻 DESENVOLVIMENTO ATUAL
+          =
+🟢 ESTUDO DE MAINFRAME E COBOL
+```
 
-[ ] Validação de CPF
-[ ] Validação de telefone
-[ ] Tratamento avançado de erros
+---
+
+## 🚀 PRÓXIMOS PASSOS
+
+Este CRUD pode evoluir para um ambiente mais próximo de aplicações Mainframe:
+
+```text
+[✓] CRUD DE CLIENTES
+[✓] ARQUIVO SEQUENCIAL
+[✓] INCLUSÃO
+[✓] CONSULTA
+[✓] LISTAGEM
+[✓] ALTERAÇÃO
+[✓] EXCLUSÃO
+
 [ ] VSAM KSDS
 [ ] JCL
 [ ] DB2
 [ ] CICS
-[ ] Integração com API
-[ ] Ambiente IBM Z
+[ ] z/OS
+[ ] IBM Z
+[ ] PROCESSAMENTO BATCH
+[ ] INTEGRAÇÃO COM SISTEMAS MODERNOS
 ```
 
 ---
 
-# 🟢 🧩 CONCLUSÃO
+## 👨‍💻 AUTOR
 
-Este projeto é uma demonstração de como é possível estudar **COBOL e conceitos de Mainframe** através de uma aplicação pequena, mas funcional.
+### PAULO HENRIQUE
 
-O sistema utiliza uma abordagem simples para demonstrar conceitos fundamentais que continuam relevantes no desenvolvimento de sistemas empresariais:
+Projeto desenvolvido como parte dos estudos práticos em:
 
-```text
-INPUT
-  ↓
-PROCESSAMENTO
-  ↓
-VALIDAÇÃO
-  ↓
-ARMAZENAMENTO
-  ↓
-CONSULTA
-  ↓
-ALTERAÇÃO
-  ↓
-EXCLUSÃO
-```
+🟢 **COBOL**
+
+🟢 **Mainframe**
+
+🟢 **IBM Z**
+
+🟢 **Programação de sistemas corporativos**
+
+🟢 **Tecnologias Legacy**
+
+---
+
+## 🦖💚 FINAL
 
 ```text
-================================================
+======================================================
+
        COBOL CUSTOMER MANAGEMENT SYSTEM
-================================================
 
-             🦖 LEGACY COMPUTING
-             💚 COBOL
-             💚 MAINFRAME
-             💚 GNUCOBOL
-             💚 FILE PROCESSING
+       🦖 LEGACY COMPUTING
+       💾 FILE PROCESSING
+       🟢 COBOL
+       🟢 GNUCOBOL
+       🟢 MAINFRAME
 
-              >>> SYSTEM END <<<
-================================================
+              >>> SYSTEM ONLINE <<<
+
+======================================================
 ```
 
-<div align="center">
+<font color="#00FF41">
 
-### 🦖💚 COBOL • MAINFRAME • LEGACY COMPUTING 💚🦖
+### 🦖 COBOL NÃO É APENAS HISTÓRIA.
 
-**Built with COBOL by Paulo Henrique**
+### É PARTE DA EVOLUÇÃO DA COMPUTAÇÃO EMPRESARIAL.
+
+### 💚 CODE • LEGACY • MAINFRAME • FUTURE 💚
+
+</font>
 
 </div>
