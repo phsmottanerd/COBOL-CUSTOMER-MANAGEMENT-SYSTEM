@@ -38,20 +38,11 @@ O sistema trabalha com o arquivo `CLIENTES.DAT` para armazenar os registros dos 
 
 <font color="#00FF41">
 
-```text
-╔══════════════════════════════════════════════════════╗
-║              CRUD DE CLIENTES — COBOL                ║
-╠══════════════════════════════════════════════════════╣
-║                                                      ║
-║  [1] INCLUIR CLIENTE                                 ║
-║  [2] CONSULTAR CLIENTE                               ║
-║  [3] LISTAR CLIENTES                                 ║
-║  [4] EXCLUIR CLIENTE                                 ║
-║  [0] SAIR                                            ║
-║                                                      ║
-╚══════════════════════════════════════════════════════╝
+<div align="center">
 
-```text
+<img src="https://readme-typing-svg.demolab.com?font=Courier+New&weight=700&size=22&duration=2500&pause=1000&color=00FF41&background=00000000&center=true&vCenter=true&width=750&lines=%E2%95%94%E2%95%90%E2%95%90%E2%95%90+CRUD+DE+CLIENTES+%E2%80%94+COBOL+%E2%95%90%E2%95%90%E2%95%97;%E2%95%91+%5B1%5D+INCLUIR+CLIENTE+%E2%95%91;%E2%95%91+%5B2%5D+CONSULTAR+CLIENTE+%E2%95%91;%E2%95%91+%5B3%5D+LISTAR+CLIENTES+%E2%95%91;%E2%95%91+%5B4%5D+EXCLUIR+CLIENTE+%E2%95%91;%E2%95%91+%5B0%5D+SAIR+%E2%95%91;%E2%95%9A%E2%95%90%E2%95%90%E2%95%90+COBOL+TERMINAL+%E2%95%90%E2%95%90%E2%95%9D" />
+
+</div>
 ╔══════════════════════════════════════════════════════════════╗
 ║                                                              ║
 ║                 COBOL CUSTOMER MANAGEMENT SYSTEM             ║
