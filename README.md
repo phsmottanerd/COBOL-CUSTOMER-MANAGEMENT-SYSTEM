@@ -10,6 +10,8 @@
 </div>
 
 
+                                    <img src="https://readme-typing-svg.demolab.com?font=Courier+New&weight=700&size=22&duration=2500&pause=1000&color=00FF41&background=00000000&center=true&vCenter=true&width=700&lines=PROGRAMADOR+PAULO+HENRIQUE;COBOL+%7C+MAINFRAME+DEVELOPER;MAINFRAME+SYSTEMS+ONLINE...;COBOL+PROGRAM+LOADED...;SYSTEM+READY..." />
+    
 # 🦖 CRUD DE CLIENTES — COBOL
 
 **Autor:** Paulo Henrique
@@ -120,6 +122,8 @@ A aplicação demonstra, de forma prática, conceitos fundamentais da programaç
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=000000&height=130&section=header&text=CRUD%20DE%20CLIENTES&fontColor=00FF41&fontSize=38&fontAlignY=45&desc=COBOL%20%7C%20GNUCOBOL%20%7C%20LEGACY%20COMPUTING&descColor=00FF41&descSize=17" width="100%"/>
 
+
+                                              <img src="https://readme-typing-svg.demolab.com?font=Courier+New&weight=700&size=22&duration=2500&pause=1000&color=00FF41&background=00000000&center=true&vCenter=true&width=700&lines=PROGRAMADOR+PAULO+HENRIQUE;COBOL+%7C+MAINFRAME+DEVELOPER;MAINFRAME+SYSTEMS+ONLINE...;COBOL+PROGRAM+LOADED...;SYSTEM+READY..." />
 <br>
 from pathlib import Path
 import zipfile
